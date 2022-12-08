@@ -25,7 +25,6 @@ from sklearn.manifold import TSNE
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 cat = 5
 
-
 def balance_data(dataset, num_per_label, col):
     # pick out the same size label from data set
     counter = np.zeros(cat)  # for 5 classes
@@ -67,7 +66,6 @@ def normalize(data):
 
     return normalized_data
 
-
 data = np.genfromtxt(
     "feature_vectors_syscallsbinders_frequency_5_Cat.csv", delimiter=",")
 
@@ -106,7 +104,6 @@ print("Benign_training", (s == 4).sum())
 
 print(type(test_labels))
 s = np.array([np.where(r == 1)[0][0] for r in test_labels])
-# s = s.astype(int)
 print("Adware_testing=", (s == 0).sum())
 print("Banking_testing=", (s == 1).sum())
 print("SMS_testing", (s == 2).sum())
@@ -127,8 +124,6 @@ pseudo_label_cost_list = np.zeros(1)
 
 neural_network_accuracy = 0
 pseudo_label_accuracy = 0
-
-
 learningRate = 0.4
 trainingEpochs = 1500
 lbl_samples = 1000
@@ -171,8 +166,6 @@ PLx = tf.placeholder("float", [None, inputN])
 PLy = tf.placeholder("float", [None, outputN])
 alpha = tf.placeholder("float", )
 
-# plt.clf()
-
 def NN(x, w, b):
     # Hidden layer 1
     HL = tf.add(tf.matmul(x, w['h1']), b['b1'])
@@ -198,7 +191,6 @@ def NN(x, w, b):
     out_layer = tf.matmul(HL5, w['out']) + b['out']
 
     return out_layer
-
 
 # initialize weights and biases
 
@@ -279,10 +271,6 @@ def roc_curve(sess):
 
 def tsne(sess):
     plt.figure(figsize=(10, 5))
-    # colors = 'r', 'b'
-    # target_ids = -1.0, 1.0
-    # target_names ='phishing','legitimate'
-    
     colors = 'r', 'b' , 'g' , 'c' , ''
     target_ids = 1, 2 , 3 , 4, 5
     target_names ='Iris-setosa','Iris-versicolor' , 'Iris-virginica'
@@ -308,7 +296,6 @@ with tf.Session() as sess:
     sess.run(init)
 
     # Training cycle
-    # for epoch in range(trainingEpochs):
     avg_costNN = 1.
     avg_costPL = 1.
     while (avg_costNN > 0.05 and epoch < trainingEpochs):
