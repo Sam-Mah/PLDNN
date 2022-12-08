@@ -66,7 +66,6 @@ def tf_confusion_metrics(model, actual_classes, session, feed_dict):
   return df
 
 
-
 def tf_confusion_metrics_2(model, actual_classes, session, feed_dict):
     actuals, predictions = calculate_output(model, actual_classes, session, feed_dict)
     cm = tf.confusion_matrix(actuals, predictions)
