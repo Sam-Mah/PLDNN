@@ -55,9 +55,6 @@ def tf_confusion_metrics(model, actual_classes, session, feed_dict):
 
       df = pd.DataFrame(data_pd, columns=['Measure', 'Percentage'])
 
-
-      # acc = 'PR: ' + PR + ' - RC: ' + RC + ' - F1: ' + F1 + ' - ACC: ' + ACC + ' - FPR: ' + FPR + ' - FNR: ' + FNR
-
   except Exception as e:
     print(e)
     data_pd = [['PR', 'Err'], ['RC', 'Err'], ['F1', 'Err'], ['ACC', 'Err'], ['FPR', 'Err'], ['FNR', 'Err']]
