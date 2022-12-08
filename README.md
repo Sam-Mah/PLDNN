@@ -11,4 +11,4 @@ features among publicly available datasets (https://www.unb.ca/cic/datasets/mald
 
 Our model, called Pseudo-Label Deep Neural Network (PLDNN), significantly outperforms Label Propagation (LP), which is a popular semi-supervised machine learning algorithm, and other common machine learning algorithms such as Random Forest (RF), Decision Tree (DT), Support Vector Machine (SVM), and k-Nearest Neighbor (k-NN).
 
-This project is implemented using Python and Tensorflow library.
+This project is implemented using Python and Tensorflow libraries.
